@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="Magneto/test">
+        <parameter name="browserName" value="edge"></parameter>
+        <classes>
+            <class name="com.ML.Test.Magneto.test">
+                <methods>
+                    <include name="magneto"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
