@@ -38,6 +38,9 @@ public class BagsPage {
         return addmaxprice;
 
     }
+    /*
+    this method is use to get the highest price of bags
+     */
     public String hightestprice(Float addmaxprice) {
         WebElement addtocart = driver.findElement(By.xpath("//span[@class='price-wrapper ']//span[contains(text(),'" + addmaxprice + "')]"));
         seliniumActions.clickOnElement(addtocart);
@@ -49,11 +52,17 @@ public class BagsPage {
 
 
     }
+    /*
+    this method is use to add the iteam in wishlist
+     */
     public void addtowishlist(String name){
         WebElement clickomwishlist=driver.findElement(By.xpath("//a[contains(.,'"+name+"')]/parent::strong[@ class = 'product name product-item-name']/following-sibling::div/following-sibling::div/following-sibling::div/div/div/a[1]"));
         seliniumActions.clickOnElement(clickomwishlist);
     }
-
+/*
+this methos is use to add the iteam in cart
+and verify the wish list
+ */
 
     public void Addtocartandverifywishlist(){
 

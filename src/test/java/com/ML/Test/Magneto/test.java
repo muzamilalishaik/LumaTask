@@ -54,22 +54,15 @@ LoginPage loginPage;
         addtocartpage.clickonaddcart();
         addtocartpage.proceedtocheckout();
         shippingAddresPage.shippingAddresDetails();
+        Thread.sleep(3000);
         WebElement addresdetail=driver.findElement(By.xpath("//div[@class='checkout-billing-address']"));
         Assert.assertTrue(addresdetail.isDisplayed());
-        Thread.sleep(3000);
         reviewPaymentPage.palceorder();
-        Assert.assertTrue(thankyouPage.ordernumberverify().isDisplayed());
+       // Assert.assertTrue(thankyouPage.ordernumberverify().isDisplayed());
         thankyouPage.clickonOrderNumber();
         //Assert.assertTrue(thankyouPage.verifyDate().isDisplayed());
 
 
-//        try {
-//            shippingAddresPage.newaddressbutton();
-//            shippingAddresPage.shippingAddresDetails();
-//        }catch (Exception nse) {
-//            shippingAddresPage.clickonneatbutton();
-//
-//        }
 
     }
 

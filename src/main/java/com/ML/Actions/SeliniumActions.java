@@ -94,14 +94,25 @@ public class SeliniumActions {
             return false;
         }
     }
-    public void javaScriptExcecutorClick(WebElement element, WebDriver driver){
+    public boolean javaScriptExcecutorClick(WebElement element, WebDriver driver){
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("argument[0].click();", element);
+        boolean flag =false;
+        try {
+            jse.executeScript("argument[0].click();", element);
+            flag = true;
+        }catch (StaleElementReferenceException Ser) {
+            // TODO: handle exception
+            System.out.println(Ser.toString());
+            flag = false;
+        }
+        catch (ElementNotInteractableException eni) {
+            // TODO: handle exception
+            System.out.println(eni.toString());
+            flag = false;
+        }
+        return flag;
     }
-    public void javaScriptExcecutorScrollIntoView(WebElement element){
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("arguments[0].scrollIntoView(true);", element);
-    }
+
 
     public void movetoelement(WebDriver driver, WebElement element){
         Actions action = new Actions(driver);

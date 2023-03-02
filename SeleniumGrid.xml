@@ -4,10 +4,7 @@
     <parameter name="serverlink" value="http://172.18.3.220:4444"></parameter>
     <test verbose="2" preserve-order="true" name="magneto">
         <parameter name="browserName" value="edge"></parameter>
-        <parameter name="email" value="shaikmuzamil@gmail.com"></parameter>
-        <parameter name="password" value="muzamil"></parameter>
         <classes>
-
             <class name="com.ML.Test.Magneto.test">
                 <methods>
                     <include name="magneto"/>
@@ -17,10 +14,7 @@
     </test>
     <test verbose="2" preserve-order="true" name="magneto">
         <parameter name="browserName" value="chrome"></parameter>
-        <parameter name="email" value="shaikmuzamil@gmail.com"></parameter>
-        <parameter name="password" value="muzamil"></parameter>
         <classes>
-
             <class name="com.ML.Test.Magneto.test">
                 <methods>
                     <include name="magneto"/>

@@ -11,15 +11,15 @@ import org.openqa.selenium.support.PageFactory;
 public class ThankyouPage {
     WebDriver driver;
     SeliniumActions seliniumActions;
-    ReadFromJson readFromJson;
+
     public ThankyouPage(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver,this);
         seliniumActions=new SeliniumActions();
-        readFromJson=new ReadFromJson();
+
 
     }
-    @FindBy(xpath = "//strong[text()='000020777']")
+    @FindBy(xpath = "//a[@class='order-number']")
     WebElement ordernumberclick;
 
     public WebElement ordernumberverify(){

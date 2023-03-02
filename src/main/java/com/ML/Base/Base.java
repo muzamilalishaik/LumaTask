@@ -2,6 +2,7 @@ package com.ML.Base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
@@ -18,44 +19,53 @@ public class Base {
  DesiredCapabilities desiredCapabilities;
  ChromeOptions chromeOptions;
  EdgeOptions edgeOptions;
-
-@BeforeSuite
-    public void initilizeBrowser(){
-    WebDriverManager.edgedriver().setup();
-    driver=new EdgeDriver();
-}
+/*
+this method is you when your runing with  normal testng.xml file
+ */
+//@BeforeSuite
+//    public void initilizeBrowser(){
+//    WebDriverManager.edgedriver().setup();
+//    driver=new EdgeDriver();
+//    driver.get("https://magento.softwaretestingboard.com/customer/account/");
+//}
+/*
+this method is use when your runing with lamdaTest or seleniumGrid
+ */
 @Parameters({"browserName","serverlink"})
 @BeforeTest
     public void initilizeUrl(String browserName,@Optional("")String serverlink) throws MalformedURLException {
-    switch(browserName.toLowerCase()) {
+    switch(browserName) {
         case "chrome":
-            //driver = new ChromeDriver();
+
             desiredCapabilities = new DesiredCapabilities();
             chromeOptions = new ChromeOptions();
             desiredCapabilities.setCapability("browser","chrome");
             desiredCapabilities.merge(chromeOptions);
             driver = new RemoteWebDriver(new URL(serverlink),chromeOptions);
-            // driver.manage().window().setSize(new Dimension(0,500));
+            driver.get("https://magento.softwaretestingboard.com/customer/account/");
+
             break;
         case "edge":
-            //driver = new EdgeDriver();
             desiredCapabilities = new DesiredCapabilities();
             edgeOptions = new EdgeOptions();
             desiredCapabilities.setCapability("browser","edge");
             desiredCapabilities.merge(edgeOptions);
             driver = new RemoteWebDriver(new URL(serverlink),edgeOptions);
+            driver.get("https://magento.softwaretestingboard.com/customer/account/");
 
             break;
         default	:
             System.out.println("Browser name is invalid");
             break;
     }
-    driver.get("https://magento.softwaretestingboard.com/customer/account/");
     driver.manage().window().maximize();
 
 }
-//@AfterTest
-//    public void killsession(){
-//    driver.quit();
-//}
+/*
+this method is use to close the browser
+ */
+@AfterTest
+    public void killsession(){
+    driver.quit();
+}
 }

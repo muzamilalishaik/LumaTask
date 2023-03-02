@@ -22,6 +22,9 @@ public class Addtocartpage {
 
     @FindBy(xpath = "//button[@type='button']/span[text()='New Address']")
     WebElement newaddress;
+    /*
+    this method is use to click on addcart button
+     */
     public void clickonaddcart(){
         seliniumActions.clickOnElement(addcart);
     }
@@ -29,7 +32,7 @@ public class Addtocartpage {
         seliniumActions.waitandClickElement(checkout);
         seliniumActions.clickOnElement(checkout);
     }
-//    public void newaddressbuttom(){
-//        seliniumActions.waitandClickElement(newaddress);
-//    }
+    public void newaddressbuttom(){
+        seliniumActions.waitandClickElement(newaddress);
+    }
 }
